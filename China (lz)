@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "我是个乐子", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({Name = "hub (乐子)", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 local Tab1 = Window:MakeTab({Name = "玩家基础属性", Icon = "rbxassetid://4483345998", PremiumOnly = false})
 local Section1 = Tab1:AddSection({Name = "查看与修改"})
 Tab1:AddSlider({Name = "速度", Min = 16, Max = 500, Default = 25, Callback = function(Value) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value end})
