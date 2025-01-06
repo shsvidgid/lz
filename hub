@@ -1,0 +1,164 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "我是个乐子", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Tab1 = Window:MakeTab({Name = "玩家基础属性", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local Section1 = Tab1:AddSection({Name = "查看与修改"})
+Tab1:AddSlider({Name = "速度", Min = 16, Max = 500, Default = 25, Callback = function(Value) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value end})
+Tab1:AddSlider({Name = "跳跃", Min = 16, Max = 500, Default = 16, Callback = function(Value) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value end})
+local Tab2 = Window:MakeTab({Name = "其他功能", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local Section2 = Tab2:AddSection({Name = "功能操作"})
+local function addToggleWithAction(tab, name, default, action)
+    local toggle = tab:AddToggle({Name = name, Default = default, Callback = function(v) if v then action() end end})
+    return toggle
+end
+local isRunningMagnet = false
+local function fireMagnetEvent()
+    local args = { [1] = { [1] = { [1] = "\t" } } }
+    game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+end
+addToggleWithAction(Tab2, "无限磁铁开关", false, function()
+    isRunningMagnet = true
+    while isRunningMagnet do
+        spawn(fireMagnetEvent)
+        wait(0.1)
+    end
+end)
+local isRunningCashFlow = false
+addToggleWithAction(Tab2, "无限磁铁开关", false, function()
+    isRunningCashFlow = true
+    local service = game:GetService("ReplicatedStorage")
+    local clickMoney = service:WaitForChild("Events"):WaitForChild("ClickMoney")
+    local clickGem = clickMoney:WaitForChild("ClickGem")
+    while isRunningCashFlow do
+        if isRunningCashFlow then
+            clickMoney:FireServer()
+            clickGem:FireServer()
+            wait(0.01)
+        end
+    end
+end)
+Tab2:AddButton({Name = "dexV2", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/MariyaFurmanova/Library/main/dex2.0", true))() end})
+Tab2:AddButton({Name = "阿尔宙斯", Callback = function() loadstring(game:HttpGet('https://raw.githubusercontent.com/3dsonsuce/acrylix/main/Acrylix'))() end})
+local l = false
+addToggleWithAction(Tab2, "钻石", false, function()
+    l = true
+    if l then
+        local args = {[1] = 22, [2] = false}
+        local service = game:GetService("ReplicatedStorage")
+        local collectGem = service:WaitForChild("Events"):WaitForChild("CollectGem")
+        collectGem:FireServer(unpack(args))
+    end
+end)
+local isRunningAutoPlace = false
+addToggleWithAction(Tab2, "自动放置", false, function()
+    isRunningAutoPlace = true
+    local args = {1, 3, 1}
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local position = character:FindFirstChild("HumanoidRootPart").Position
+    table.insert(args, position)
+    local service = game:GetService("ReplicatedStorage")
+    local remoteEvent = service:WaitForChild("RemoteEvent"):WaitForChild("RemoteEvent_tower")
+    while isRunningAutoPlace do
+        if isRunningAutoPlace then
+            remoteEvent:FireServer(unpack(args))
+            wait(0.001)
+        end
+    end
+end)
+local Tab3 = Window:MakeTab({Name = "什么", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local Section3 = Tab3:AddSection({Name = "设置"})
+local towerGhostAttr = 1
+Tab3:AddTextbox({Name = "生成等级", Default = "1", TextDisappear = true, Callback = function(Value) towerGhostAttr = tonumber(Value) or 1 end})
+Tab3:AddButton({Name = "生成一个塔", Callback = function()
+    local args = {1, 3, towerGhostAttr}
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local position = character:FindFirstChild("HumanoidRootPart").Position
+    table.insert(args, position)
+    game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):WaitForChild("RemoteEvent_tower"):FireServer(unpack(args))
+end})
+local Tab4 = Window:MakeTab({Name = "SBDE回溯版本", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local Section4 = Tab4:AddSection({Name = "放置"})
+local backtrackTowerNames = {"Coil", "Default", "Time", "Cult", "Bull", "Replica", "Killstreak", "Fort", "Warp", "Archer", "Gods Hand", "Berserk", "Slicer", "Snow", "Orb"}
+local function getSpawnArgs(towerName)
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+    if humanoidRootPart then
+        local playerPosition = humanoidRootPart.Position
+        return {[1] = towerName, [2] = CFrame.new(playerPosition.X, playerPosition.Y, playerPosition.Z, 1, 0, 0, 0, 1, 0, 0, 0, 1)}
+    end
+    return {}
+end
+for _, towerName in ipairs(backtrackTowerNames) do
+    Section4:AddButton({Name = "生成".. towerName, Callback = function()
+        local args = getSpawnArgs(towerName)
+        if next(args) ~= nil then
+            local service = game:GetService("ReplicatedStorage")
+            local func = service:WaitForChild("Functions"):WaitForChild("SpawnTower")
+            func:InvokeServer(unpack(args))
+        end
+    end})
+end
+local Tab5 = Window:MakeTab({Name = "连续击败模式", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local Section5 = Tab5:AddSection({Name = "刷击败"})
+local loopCountInput = 1
+local intervalInput = 1
+Section5:AddTextbox({Name = "循环数量", Default = "1", TextDisappear = true, Callback = function(Value) loopCountInput = tonumber(Value) or 10 end})
+Section5:AddTextbox({Name = "间隔时间（秒）", Default = "0.1", TextDisappear = true, Callback = function(Value) intervalInput = tonumber(Value) or 1 end})
+local function getDefeat()
+    local loopCount = 0
+    while loopCount < loopCountInput do
+        game:GetService("ReplicatedStorage"):WaitForChild("ASD"):FireServer()
+        loopCount = loopCount + 1
+        wait(intervalInput)
+    end
+end
+Tab5:AddButton({Name = "得到击败", Callback = getDefeat})
+
+-- 新增的无限循环获取击败相关代码
+local isRunningInfiniteDefeat = false
+local infiniteDefeatInterval = 0.1 -- 默认的触发间隔时间，单位秒
+local function updateInfiniteDefeatInterval(Value)
+    infiniteDefeatInterval = tonumber(Value) or 0.1
+end
+Section5:AddTextbox({Name = "无限击败触发间隔（秒）", Default = "0.1", TextDisappear = true, Callback = updateInfiniteDefeatInterval})
+Tab5:AddToggle({
+    Name = "无限循环获得击败",
+    Default = false,
+    Callback = function(v)
+        isRunningInfiniteDefeat = v
+        if isRunningInfiniteDefeat then
+            while isRunningInfiniteDefeat do
+                game:GetService("ReplicatedStorage"):WaitForChild("ASD"):FireServer()
+                wait(infiniteDefeatInterval)
+            end
+        end
+    end
+})
+local Tab6 = Window:MakeTab({
+ Name = "ks",
+ Icon = "rbxassetid://4483345998",
+ PremiumOnly = false
+})
+local Section = Tab6:AddSection({
+ Name = "放置幸运方块"
+})
+local l=false
+Tab6:AddToggle({
+    Name="放置",
+    Default=false,
+    Callback=function(v)
+        l=v
+        while l do
+            local args = {
+    [1] = "SpawnBlock",
+    [2] = Vector3.new(-1, 2.0035234322285378e-12, -5.744595910073258e-07)
+}
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Lucky Block").Event:FireServer(unpack(args))
+            wait(0.0001)
+        end
+    end
+})
+OrionLib:Init()
