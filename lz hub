@@ -164,7 +164,7 @@ game:GetService("Players").LocalPlayer.Character:FindFirstChild("Lucky Block").E
 Tab2:AddButton({
 	Name = "飞行",
 	Callback = function()
-      		loadstring(game:HttpGet('https://raw.githubusercontent.com/shsvidgid/lz/refs/heads/main/fly'))()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/shsvidgid/lz/refs/heads/main/Fly%20v3%20op.txt'))()
   	end    
 })
 OrionLib:Init()
