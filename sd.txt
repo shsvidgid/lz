@@ -1,0 +1,119 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))() local Window = OrionLib:MakeWindow({Name = "我是个乐子", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"}) local Tab = Window:MakeTab({Name = "玩家", Icon = "rbxassetid://4483345998", PremiumOnly = false}) local Section = Tab:AddSection({Name = "查看"}) Tab:AddSlider({Name = "速度", Min = 16, Max = 500, Default = 25, Color = Color3.fromRGB(255, 255, 255), Increment = 1, ValueName = "速度", Callback = function(Value) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value end}) Tab:AddSlider({Name = "跳跃", Min = 16, Max = 500, Default = 16, Color = Color3.fromRGB(255, 255, 255), Increment = 1, ValueName = "高度", Callback = function(Value) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value end}) local Tab1 = Window:MakeTab({Name = "SBDE2", Icon = "rbxassetid://4483345998", PremiumOnly = false}) local Section1 = Tab1:AddSection({Name = "放置"}) local towerNames = {"Cult", "Default", "Coil", "Bull", "Rhythm", "Shotgun", "PSI", "Balloony", "OVERKILL", "Dual", "Gummy", "Snow", "Golden", "Extended", "Tycoon", "Warp", "Orbit", "Coli", "Speedrun", "Slapple", "Hallow Jack", "Ping Pong"} for _, towerName in ipairs(towerNames) do Section1:AddButton({Name = "生成"..towerName}) end local Tab2 = Window:MakeTab({Name = "管理员SBDE2", Icon = "rbxassetid://4483345998", PremiumOnly = false}) local Section2 = Tab2:AddSection({Name = "放置管理员塔"}) local adminTowerNames = {"Gods Hand", "Test Tower", "Error", "Killstreak", "Bomb", "Shard", "Plague", "Detonator", "Boomerang", "BoomerangOLD", "Replica"} for _, adminTowerName in ipairs(adminTowerNames) do Section2:AddButton({Name = "生成"..adminTowerName}) end local Tab4 = Window:MakeTab({Name = "SBDE回溯版本", Icon = "rbxassetid://4483345998", PremiumOnly = false}) local Section4 = Tab4:AddSection({Name = "放置"}) local backtrackTowerNames = {"Coil", "Default","Time","Cult","Bull","Replica","Killstreak","Fort","Warp","Archer","Gods Hand","Berserk","Slicer","Snow","Orb"} for _, towerName in ipairs(backtrackTowerNames) do Section4:AddButton({Name = "生成"..towerName, Callback = function() local player = game.Players.LocalPlayer local character = player.Character or player.CharacterAdded:Wait() local humanoidRootPart = character:FindFirstChild("HumanoidRootPart") local playerPosition = humanoidRootPart.Position local args = { [1] = towerName, [2] = CFrame.new(playerPosition.X, playerPosition.Y, playerPosition.Z, 1, 0, 0, 0, 1, 0, 0, 0, 1) } game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(unpack(args)) end}) end Tab:AddButton({ Name = "无限磁铁", Callback = function() local function fireEvent() local args = { [1] = { [1] = { [1] = "\t" } } } game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args)) end while true do spawn(fireEvent) wait(0.1) end end }) Tab:AddButton({ Name = "现金流自动钱", Callback = function() while true do wait(0.01) game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClickMoney"):FireServer() game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClickMoney"):WaitForChild("ClickGem"):FireServer() end end }) 
+Tab:AddButton({
+	Name = "dexV2",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/MariyaFurmanova/Library/main/dex2.0", true))()
+  	end    
+})
+Tab:AddButton({
+	Name = "阿尔宙斯",
+	Callback = function()      		
+loadstring(game:HttpGet('https://raw.githubusercontent.com/3dsonsuce/acrylix/main/Acrylix'))()
+  	end    
+})
+local l=false
+Tab:AddToggle({
+    Name="钻石",
+    Default=false,
+    Callback=function(v)
+        l=v
+        while l do
+            local args = {
+    [1] = 22,
+    [2] = false
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("CollectGem"):FireServer(unpack(args))
+
+            wait(0.0001)
+        end
+    end
+})
+Tab:AddButton({
+	Name = "生成一个塔幽灵在门口",
+	Callback = function()
+      		local args = {1, 3, 1}
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local position = character:FindFirstChild("HumanoidRootPart").Position
+table.insert(args, position)
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):WaitForChild("RemoteEvent_tower"):FireServer(unpack(args))
+
+  	end    
+})
+local l=false
+Tab:AddToggle({
+    Name="自动刷钱(机器人 需要在线时长)",
+    Default=false,
+    Callback=function(v)
+        l=v
+        while l do
+            local args = {1, 3, 1}
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local position = character:FindFirstChild("HumanoidRootPart").Position
+table.insert(args, position)
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):WaitForChild("RemoteEvent_tower"):FireServer(unpack(args))
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))() local Window = OrionLib:MakeWindow({Name = "我是个乐子", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"}) local Tab = Window:MakeTab({Name = "玩家", Icon = "rbxassetid://4483345998", PremiumOnly = false}) local Section = Tab:AddSection({Name = "查看"}) Tab:AddSlider({Name = "速度", Min = 16, Max = 500, Default = 25, Color = Color3.fromRGB(255, 255, 255), Increment = 1, ValueName = "速度", Callback = function(Value) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value end}) Tab:AddSlider({Name = "跳跃", Min = 16, Max = 500, Default = 16, Color = Color3.fromRGB(255, 255, 255), Increment = 1, ValueName = "高度", Callback = function(Value) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value end}) local Tab1 = Window:MakeTab({Name = "SBDE2", Icon = "rbxassetid://4483345998", PremiumOnly = false}) local Section1 = Tab1:AddSection({Name = "放置"}) local towerNames = {"Cult", "Default", "Coil", "Bull", "Rhythm", "Shotgun", "PSI", "Balloony", "OVERKILL", "Dual", "Gummy", "Snow", "Golden", "Extended", "Tycoon", "Warp", "Orbit", "Coli", "Speedrun", "Slapple", "Hallow Jack", "Ping Pong"} for _, towerName in ipairs(towerNames) do Section1:AddButton({Name = "生成"..towerName}) end local Tab2 = Window:MakeTab({Name = "管理员SBDE2", Icon = "rbxassetid://4483345998", PremiumOnly = false}) local Section2 = Tab2:AddSection({Name = "放置管理员塔"}) local adminTowerNames = {"Gods Hand", "Test Tower", "Error", "Killstreak", "Bomb", "Shard", "Plague", "Detonator", "Boomerang", "BoomerangOLD", "Replica"} for _, adminTowerName in ipairs(adminTowerNames) do Section2:AddButton({Name = "生成"..adminTowerName}) end local Tab4 = Window:MakeTab({Name = "SBDE回溯版本", Icon = "rbxassetid://4483345998", PremiumOnly = false}) local Section4 = Tab4:AddSection({Name = "放置"}) local backtrackTowerNames = {"Coil", "Default","Time","Cult","Bull","Replica","Killstreak","Fort","Warp","Archer","Gods Hand","Berserk","Slicer","Snow","Orb"} for _, towerName in ipairs(backtrackTowerNames) do Section4:AddButton({Name = "生成"..towerName, Callback = function() local player = game.Players.LocalPlayer local character = player.Character or player.CharacterAdded:Wait() local humanoidRootPart = character:FindFirstChild("HumanoidRootPart") local playerPosition = humanoidRootPart.Position local args = { [1] = towerName, [2] = CFrame.new(playerPosition.X, playerPosition.Y, playerPosition.Z, 1, 0, 0, 0, 1, 0, 0, 0, 1) } game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(unpack(args)) end}) end Tab:AddButton({ Name = "无限磁铁", Callback = function() local function fireEvent() local args = { [1] = { [1] = { [1] = "\t" } } } game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args)) end while true do spawn(fireEvent) wait(0.1) end end }) Tab:AddButton({ Name = "现金流自动钱", Callback = function() while true do wait(0.01) game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClickMoney"):FireServer() game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClickMoney"):WaitForChild("ClickGem"):FireServer() end end }) 
+Tab:AddButton({
+	Name = "dexV2",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/MariyaFurmanova/Library/main/dex2.0", true))()
+  	end    
+})
+Tab:AddButton({
+	Name = "阿尔宙斯",
+	Callback = function()      		
+loadstring(game:HttpGet('https://raw.githubusercontent.com/3dsonsuce/acrylix/main/Acrylix'))()
+  	end    
+})
+local l=false
+Tab:AddToggle({
+    Name="钻石",
+    Default=false,
+    Callback=function(v)
+        l=v
+        while l do
+            local args = {
+    [1] = 22,
+    [2] = false
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("CollectGem"):FireServer(unpack(args))
+
+            wait(0.0001)
+        end
+    end
+})
+Tab:AddButton({
+	Name = "生成一个塔幽灵在门口",
+	Callback = function()
+      		local args = {1, 3, 1}
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local position = character:FindFirstChild("HumanoidRootPart").Position
+table.insert(args, position)
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):WaitForChild("RemoteEvent_tower"):FireServer(unpack(args))
+
+  	end    
+})
+local l=false
+Tab:AddToggle({
+    Name="自动放置",
+    Default=false,
+    Callback=function(v)
+        l=v
+        while l do
+            local args = {1, 3, 1}
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local position = character:FindFirstChild("HumanoidRootPart").Position
+table.insert(args, position)
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):WaitForChild("RemoteEvent_tower"):FireServer(unpack(args))
+
+
+            wait(0.001)
+        end
+    end
+})
+OrionLib:Init()
