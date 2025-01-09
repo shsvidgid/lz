@@ -167,4 +167,10 @@ Tab1:AddButton({
       		loadstring(game:HttpGet('https://raw.githubusercontent.com/shsvidgid/lz/refs/heads/main/fly%20v3'))()
   	end    
 })
+Tab2:AddButton({
+	Name = "指令",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/shsvidgid/lz/refs/heads/main/%5BCN%5DInfinite%20Yield6.1.lua'))()
+  	end    
+})
 OrionLib:Init()
