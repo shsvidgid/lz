@@ -161,11 +161,11 @@ game:GetService("Players").LocalPlayer.Character:FindFirstChild("Lucky Block").E
         end
     end
 })
-local Tab7=Window:MakeTab{Name="SBTD(弱智游戏)",Icon="rbxassetid://4483345998",PremiumOnly=false}
-local Section4=Tab4:AddSection{Name="放置"}
+local Tab7=Window:MakeTab{Name="SBTD(弱智数值游戏)",Icon="rbxassetid://4483345998",PremiumOnly=false}
+local Section7=Tab7:AddSection{Name="放置"}
 local bNames={"Coil","Default","Cult","Bull","Replica","Killstreak","Gods Hand","Snow"}
 for _,n in ipairs(bNames)do
-    Section4:AddButton{Name="生成"..n,Callback=function()
+    Section7:AddButton{Name="生成"..n,Callback=function()
         local hrp=(game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()):WaitForChild('HumanoidRootPart')
         game.ReplicatedStorage.Functions.SpawnTower:InvokeServer(n,CFrame.new(hrp.Position,hrp.CFrame*Vector3.new(0,0,1)))
     end}
