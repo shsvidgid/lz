@@ -1,23 +1,23 @@
-local Orion lib = loadstring(game:http get((' https://raw . githubusercontent . com/shlexware/Orion/main/source ')))()
-local Window = Orion lib:make Window({ Name = "乐子hub "，HidePremium = false，SaveConfig = true，ConfigFolder = "OrionTest"})
-local tab 1 = Window:MakeTab({ Name = "玩家基础属性"，Icon = "rbxassetid://4483345998 "，PremiumOnly = false})
-local section 1 = tab 1:add section({ Name = "查看与修改"})
-Tab1:AddSlider({Name = "速度“，Min = 16，Max = 500，默认= 25，回调=函数(值)游戏。players . local player . character . humanoid . walk speed = Value end })
-Tab1:AddSlider({Name = "跳跃“，Min = 16，Max = 500，默认= 16，回调=函数(值)游戏。players . local player . character . humanoid . jump power = Value end })
-local tab 2 = Window:MakeTab({ Name = "其他功能"，Icon = "rbxassetid://4483345998 "，PremiumOnly = false})
-local section 2 = tab 2:add section({ Name = "功能操作"})
-本地函数addToggleWithAction(选项卡，名称，默认值，操作)
-local toggle = tab:add toggle({ Name = Name，Default = default，Callback = function(v)if v then action()end end })
-返回开关
-结束
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "我是个乐子", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Tab1 = Window:MakeTab({Name = "玩家基础属性", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local Section1 = Tab1:AddSection({Name = "查看与修改"})
+Tab1:AddSlider({Name = "速度", Min = 16, Max = 500, Default = 25, Callback = function(Value) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value end})
+Tab1:AddSlider({Name = "跳跃", Min = 16, Max = 500, Default = 16, Callback = function(Value) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value end})
+local Tab2 = Window:MakeTab({Name = "其他功能", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local Section2 = Tab2:AddSection({Name = "功能操作"})
+local function addToggleWithAction(tab, name, default, action)
+    local toggle = tab:AddToggle({Name = name, Default = default, Callback = function(v) if v then action() end end})
+    return toggle
+end
 local isRunningMagnet = false
-本地函数fireMagnetEvent()
-local args = {[1]= {[1]= {[1]= " t " } } }
-game:get service(" replicated storage "):wait for child(" remote event "):FireServer(unpack(args))
-结束
-addToggleWithAction(Tab2，"无限磁铁开关“，false，函数()
-isRunningMagnet = true
-当我在跑步的时候
+local function fireMagnetEvent()
+    local args = { [1] = { [1] = { [1] = "\t" } } }
+    game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+end
+addToggleWithAction(Tab2, "无限磁铁开关", false, function()
+    isRunningMagnet = true
+    while isRunningMagnet do
         spawn(fireMagnetEvent)
         wait(0.1)
     end
@@ -161,36 +161,13 @@ game:GetService("Players").LocalPlayer.Character:FindFirstChild("Lucky Block").E
         end
     end
 })
-Tab1:AddButton({
-	Name = "飞行",
-	Callback = function()
-      		loadstring(game:HttpGet('https://raw.githubusercontent.com/shsvidgid/lz/refs/heads/main/fly%20v3'))()
-  	end    
-})
-Tab2:AddButton({
-	Name = "指令",
-	Callback = function()
-      		loadstring(game:HttpGet('https://raw.githubusercontent.com/shsvidgid/lz/refs/heads/main/%5BCN%5DInfinite%20Yield6.1.lua'))()
-  	end    
-})
-local Tab7 = Window:MakeTab({Name = "SBDE重置版", Icon = 4483345998, PremiumOnly = false})
-local Section4 = Tab7:AddSection({Name = "放置"})
-local towerNames = {"Coil", "Default", "Cult", "Bull", "Warp", "Berserk", "Snow"}
-local rs = game:GetService("ReplicatedStorage")
-
-local function getArgs(tower)
-    local part = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
-    return part and {rs.Towers[tower], CFrame.new(part.Position)} or {}
-end
-
-for _, tower in ipairs(towerNames) do
-    Section4:AddButton({Name = "生成".. 🤓🤓🤓🤑🤑🤑😎😎😎,
-        Callback = function()
-            local args = getArgs(tower)
-            if #args > 0 then
-                rs.Functions.SpawnTower:InvokeServer(unpack(args))
-            end
-        end
-    })
+local Tab7=Window:MakeTab{Name="SBTD(弱智游戏)",Icon="rbxassetid://4483345998",PremiumOnly=false}
+local Section4=Tab4:AddSection{Name="放置"}
+local bNames={"Coil","Default","Cult","Bull","Replica","Killstreak","Gods Hand","Snow"}
+for _,n in ipairs(bNames)do
+    Section4:AddButton{Name="生成"..n,Callback=function()
+        local hrp=(game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()):WaitForChild('HumanoidRootPart')
+        game.ReplicatedStorage.Functions.SpawnTower:InvokeServer(n,CFrame.new(hrp.Position,hrp.CFrame*Vector3.new(0,0,1)))
+    end}
 end
 OrionLib:Init()
