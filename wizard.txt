@@ -32,7 +32,7 @@ KillingCheats:CreateToggle("自动", function(value)
     end
 end)
 KillingCheats:CreateButton("传送沙盒模式", function()
-   local args = {
+    local args = {
     [1] = 17534629990,
     [2] = "Sandbox",
     [3] = {
