@@ -1,11 +1,43 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
 
-local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
+local PhantomForcesWindow = Library:NewWindow("因为那个UI没了，暂时")
 
-local PhantomForcesWindow = Library:NewWindow("等等什么")
+local KillingCheats = PhantomForcesWindow:NewSection("放置连续击败(没有冷却)")
 
-local kill = PhantomForcesWindow:NewSection("放置连续击败")
-
-kill:CreateButton("Button", function()
-local g=game;local t=g.ReplicatedStorage.Towers;local p=g.Players.LocalPlayer;local c=p.Character or p.CharacterAdded:Wait();local a={t.Killstreak,CFrame.new(c.Humanoid.RootPart.Position)};g.ReplicatedStorage.Functions.SpawnTower:InvokeServer(unpack(a))
-("放置(需要装备 无冷却)")
+local autoTimer
+KillingCheats:CreateButton("放置", function()
+    local g = game
+    local t = g.ReplicatedStorage.Towers
+    local p = g.Players.LocalPlayer
+    local c = p.Character or p.CharacterAdded:Wait()
+    local a = {t.Killstreak, CFrame.new(c.Humanoid.RootPart.Position)}
+    g.ReplicatedStorage.Functions.SpawnTower:InvokeServer(unpack(a))
 end)
+
+KillingCheats:CreateToggle("自动", function(value)
+    if value then
+        autoTimer = game:GetService("RunService").Heartbeat:Connect(function()
+            local g = game
+            local t = g.ReplicatedStorage.Towers
+            local p = g.Players.LocalPlayer
+            local c = p.Character or p.CharacterAdded:Wait()
+            local a = {t.Killstreak, CFrame.new(c.Humanoid.RootPart.Position)}
+            g.ReplicatedStorage.Functions.SpawnTower:InvokeServer(unpack(a))
+        end)
+    else
+        if autoTimer then
+            autoTimer:Disconnect()
+            autoTimer = nil
+        end
+    end
+end)
+KillingCheats:CreateButton("传送沙盒模式", function()
+   local args = {
+    [1] = 17534629990,
+    [2] = "Sandbox",
+    [3] = {
+        [1] = game:GetService("Players").LocalPlayer
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("ORGANIZED SANCTUARY"):WaitForChild("Events"):WaitForChild("StartGame"):FireServer(unpack(args))
