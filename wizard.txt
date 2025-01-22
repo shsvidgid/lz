@@ -1,29 +1,11 @@
 
 local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
 
-local PhantomForcesWindow = Library:NewWindow("Combat")
+local PhantomForcesWindow = Library:NewWindow("等等什么")
 
-local KillingCheats = PhantomForcesWindow:NewSection("Kill Options")
+local kill = PhantomForcesWindow:NewSection("放置连续击败")
 
-KillingCheats:CreateButton("Button", function()
-print("HI")
-end)
-
-KillingCheats:CreateTextbox("TextBox", function(text)
-        print(text)
-end)
-
-KillingCheats:CreateToggle("Auto Ez", function(value)
-print(value)
-end)
-
-KillingCheats:CreateDropdown("DropDown", {"Hello", "World", "Hello World"}, 2, function(text)
-print(text)
-end)
-
-KillingCheats:CreateSlider("Slider", 0, 100, 15, false, function(value)
-print(value)
- end)
-KillingCheats:CreateColorPicker("Picker", Color3.new(255, 255, 255), function(value)
-print(value)
+kill:CreateButton("Button", function()
+local g=game;local t=g.ReplicatedStorage.Towers;local p=g.Players.LocalPlayer;local c=p.Character or p.CharacterAdded:Wait();local a={t.Killstreak,CFrame.new(c.Humanoid.RootPart.Position)};g.ReplicatedStorage.Functions.SpawnTower:InvokeServer(unpack(a))
+("放置(需要装备 无冷却)")
 end)
