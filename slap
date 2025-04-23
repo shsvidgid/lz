@@ -43,4 +43,34 @@ Tab:AddButton({
     Callback = function() local Players=game:GetService("Players") local char=(Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()).PrimaryPart.CFrame local function getNil(n,c) for _,v in next,getnilinstances() do if v.ClassName==c and v.Name==n then return v end end return nil end game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(game:GetService("ReplicatedStorage"):WaitForChild("Upgrades"):WaitForChild("PSI"):WaitForChild("4"):WaitForChild("PSI"),char,getNil("Cult","Model"),"sd46821_CN")
     end
 })
+Tab:AddButton({
+    Name = "放置满级公牛",
+    Callback = function() local Players=game:GetService("Players") local char=(Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()).PrimaryPart.CFrame local function getNil(n,c) for _,v in next,getnilinstances() do if v.ClassName==c and v.Name==n then return v end end return nil end game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(game:GetService("ReplicatedStorage"):WaitForChild("Upgrades"):WaitForChild("Bull"):WaitForChild("5"):WaitForChild("Bull"),char,getNil("Cult","Model"),"sd46821_CN")
+    end
+})
+Tab:AddButton({
+    Name = "放置满级巴掌果实",
+    Callback = function() local Players=game:GetService("Players") local char=(Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()).PrimaryPart.CFrame local function getNil(n,c) for _,v in next,getnilinstances() do if v.ClassName==c and v.Name==n then return v end end return nil end game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(game:GetService("ReplicatedStorage"):WaitForChild("Upgrades"):WaitForChild("Slapple"):WaitForChild("4"):WaitForChild("Slapple"),char,getNil("Cult","Model"),"sd46821_CN")
+    end
+})
+Tab:AddButton({
+    Name = "放置满级连续杀戮",
+    Callback = function() local Players=game:GetService("Players") local char=(Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()).PrimaryPart.CFrame local function getNil(n,c) for _,v in next,getnilinstances() do if v.ClassName==c and v.Name==n then return v end end return nil end game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(game:GetService("ReplicatedStorage"):WaitForChild("Upgrades"):WaitForChild("Killstreak"):WaitForChild("4"):WaitForChild("Killstreak"),char,getNil("Cult","Model"),"sd46821_CN")
+    end
+})
+Tab:AddButton({
+    Name = "放置满级幽灵",
+    Callback = function() local Players=game:GetService("Players") local char=(Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()).PrimaryPart.CFrame local function getNil(n,c) for _,v in next,getnilinstances() do if v.ClassName==c and v.Name==n then return v end end return nil end game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(game:GetService("ReplicatedStorage"):WaitForChild("Upgrades"):WaitForChild("Ghost"):WaitForChild("4"):WaitForChild("Ghost"),char,getNil("Cult","Model"),"sd46821_CN")
+    end
+})
+Tab:AddButton({
+    Name = "放置满级双倍",
+    Callback = function() local Players=game:GetService("Players") local char=(Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()).PrimaryPart.CFrame local function getNil(n,c) for _,v in next,getnilinstances() do if v.ClassName==c and v.Name==n then return v end end return nil end game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(game:GetService("ReplicatedStorage"):WaitForChild("Upgrades"):WaitForChild("Dual"):WaitForChild("4"):WaitForChild("Dual"),char,getNil("Cult","Model"),"sd46821_CN")
+    end
+})
+Tab:AddButton({
+    Name = "放置满级默认",
+    Callback = function() local Players=game:GetService("Players") local char=(Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()).PrimaryPart.CFrame local function getNil(n,c) for _,v in next,getnilinstances() do if v.ClassName==c and v.Name==n then return v end end return nil end game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(game:GetService("ReplicatedStorage"):WaitForChild("Upgrades"):WaitForChild("Default"):WaitForChild("4"):WaitForChild("Default"),char,getNil("Cult","Model"),"sd46821_CN")
+    end
+})
 OrionLib:Init()
