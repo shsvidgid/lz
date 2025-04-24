@@ -60,7 +60,7 @@ Tab:AddButton({
 })
 Tab:AddButton({
     Name = "放置满级幽灵",
-    Callback = function() local Players=game:GetService("Players") local char=(Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()).PrimaryPart.CFrame local function getNil(n,c) for _,v in next,getnilinstances() do if v.ClassName==c and v.Name==n then return v end end return nil end game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(game:GetService("ReplicatedStorage"):WaitForChild("Upgrades"):WaitForChild("Ghost"):WaitForChild("4"):WaitForChild("Ghost"),char,getNil("Cult","Model"),"sd46821_CN")
+    Callback = function() local Players=game:GetService("Players") local char=(Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()).PrimaryPart.CFrame local function getNil(n,c) for _,v in next,getnilinstances() do if v.ClassName==c and v.Name==n then return v end end return nil end game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(game:GetService("ReplicatedStorage"):WaitForChild("Upgrades"):WaitForChild("Ghost"):WaitForChild("5"):WaitForChild("Ghost"),char,getNil("Cult","Model"),"sd46821_CN")
     end
 })
 Tab:AddButton({
@@ -71,6 +71,75 @@ Tab:AddButton({
 Tab:AddButton({
     Name = "放置满级默认",
     Callback = function() local Players=game:GetService("Players") local char=(Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()).PrimaryPart.CFrame local function getNil(n,c) for _,v in next,getnilinstances() do if v.ClassName==c and v.Name==n then return v end end return nil end game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(game:GetService("ReplicatedStorage"):WaitForChild("Upgrades"):WaitForChild("Default"):WaitForChild("4"):WaitForChild("Default"),char,getNil("Cult","Model"),"sd46821_CN")
+    end
+})
+Tab:AddButton({
+    Name = "放置满级雪",
+    Callback = function() local Players=game:GetService("Players") local char=(Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()).PrimaryPart.CFrame local function getNil(n,c) for _,v in next,getnilinstances() do if v.ClassName==c and v.Name==n then return v end end return nil end game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(game:GetService("ReplicatedStorage"):WaitForChild("Upgrades"):WaitForChild("Snow"):WaitForChild("4"):WaitForChild("Snow"),char,getNil("Cult","Model"),"sd46821_CN")
+    end
+})
+Tab:AddButton({
+    Name = "放置满级镜子",
+    Callback = function() local Players=game:GetService("Players") local char=(Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()).PrimaryPart.CFrame local function getNil(n,c) for _,v in next,getnilinstances() do if v.ClassName==c and v.Name==n then return v end end return nil end game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(game:GetService("ReplicatedStorage"):WaitForChild("Upgrades"):WaitForChild("Mirror"):WaitForChild("3"):WaitForChild("Mirror"),char,getNil("Cult","Model"),"sd46821_CN")
+    end
+})
+Tab:AddButton({
+    Name = "放置满级轨道",
+    Callback = function() local Players=game:GetService("Players") local char=(Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()).PrimaryPart.CFrame local function getNil(n,c) for _,v in next,getnilinstances() do if v.ClassName==c and v.Name==n then return v end end return nil end game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(game:GetService("ReplicatedStorage"):WaitForChild("Upgrades"):WaitForChild("Orbit"):WaitForChild("4"):WaitForChild("Orbit"),char,getNil("Cult","Model"),"sd46821_CN")
+    end
+})
+Tab:AddButton({
+    Name = "放置满级软糖",
+    Callback = function() local Players=game:GetService("Players") local char=(Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()).PrimaryPart.CFrame local function getNil(n,c) for _,v in next,getnilinstances() do if v.ClassName==c and v.Name==n then return v end end return nil end game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(game:GetService("ReplicatedStorage"):WaitForChild("Upgrades"):WaitForChild("Gummy"):WaitForChild("4"):WaitForChild("Gummy"),char,getNil("Cult","Model"),"sd46821_CN")
+    end
+})
+Tab:AddButton({
+    Name = "放置满级乒乓球",
+    Callback = function() local Players=game:GetService("Players") local char=(Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()).PrimaryPart.CFrame local function getNil(n,c) for _,v in next,getnilinstances() do if v.ClassName==c and v.Name==n then return v end end return nil end game:GetService("ReplicatedStorage"):WaitForChild("Functions"):WaitForChild("SpawnTower"):InvokeServer(game:GetService("ReplicatedStorage"):WaitForChild("Upgrades"):WaitForChild("Ping Pong"):WaitForChild("4"):WaitForChild("Ping Pong."),char,getNil("Cult","Model"),"sd46821_CN")
+    end
+})
+local Tab1 = Window:MakeTab({
+    Name = "投票模式",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+local Section = Tab1:AddSection({
+    Name = "可强制投票无法投票的模式"
+})
+Tab1:AddButton({
+    Name = "投票简单模式",
+    Callback = function() local args = {
+    [1] = 1
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OnVoteMade"):FireServer(unpack(args))
+    end
+})
+Tab1:AddButton({
+    Name = "投票中等模式",
+    Callback = function() local args = {
+    [1] = 2
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OnVoteMade"):FireServer(unpack(args))
+    end
+})
+Tab1:AddButton({
+    Name = "投票困难模式",
+    Callback = function() local args = {
+    [1] = 3
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OnVoteMade"):FireServer(unpack(args))
+    end
+})
+Tab1:AddButton({
+    Name = "投票专家模式",
+    Callback = function() local args = {
+    [1] = 4
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OnVoteMade"):FireServer(unpack(args))
     end
 })
 OrionLib:Init()
