@@ -1,0 +1,110 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({
+    Name = "slap battles fanmade(R)",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "战斗砖块太好玩了"
+})
+local Tab = Window:MakeTab({
+    Name = "连杀",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+local Section = Tab:AddSection({
+    Name = "所有人都可见"
+})
+Tab:AddButton({
+    Name = "连杀25杀特效",
+    Callback = function() game:GetService("ReplicatedStorage"):WaitForChild("Blue"):FireServer()
+    end
+})
+Tab:AddButton({
+    Name = "50杀特效",
+    Callback = function()
+        game:GetService("ReplicatedStorage"):WaitForChild("Red"):FireServer()
+    end
+})
+Tab:AddButton({
+    Name = "75杀特效",
+    Callback = function() game:GetService("ReplicatedStorage"):WaitForChild("Purple"):FireServer()
+    end
+})
+Tab:AddButton({
+    Name = "100杀特效",
+    Callback = function() game:GetService("ReplicatedStorage"):WaitForChild("Yellow"):FireServer()
+    end
+})
+Tab:AddButton({
+    Name = "停止50杀特效",
+    Callback = function() game:GetService("ReplicatedStorage"):WaitForChild("RedEnd"):FireServer()
+    end
+})
+Tab:AddButton({
+    Name = "火球技能(无需75kill)",
+    Callback = function() game:GetService("Players").LocalPlayer.Character.Killstreak.Ability.RemoteEvent:FireServer()
+    end
+})
+Tab:AddButton({
+    Name = "250kill技能(无需250kill)",
+    Callback = function() game:GetService("Players").LocalPlayer.Character.Killstreak.Ability.RemoteEvent2:FireServer()
+    end
+})
+Tab:AddButton({
+    Name = "给予杀戮",
+    Callback = function() local args = {
+    [1] = "\237\153\149\236\157\184"
+}
+
+game:GetService("Players").LocalPlayer.Character.Killstreak.Ability.PhaseEvent:FireServer(unpack(args))
+    end
+})
+Tab:AddButton({
+    Name = "循环给予杀戮(0.01)",
+    Callback = function() local t = 0.01  
+while true do game:GetService("Players").LocalPlayer.Character.Killstreak.Ability.PhaseEvent:FireServer("\237\153\149\236\157\184"); wait(t) end
+    end
+})
+Tab:AddButton({
+    Name = "给予收割者杀戮",
+    Callback = function() local args = {
+    [1] = "\237\153\149\236\157\184"
+}
+
+game:GetService("Players").LocalPlayer.Character.Reaper.Ability.PhaseEvent:FireServer(unpack(args))
+    end
+})
+Tab:AddButton({
+    Name = "循环给予收割者杀戮(0.01)",
+    Callback = function() local t = 0.01  
+while true do game:GetService("Players").LocalPlayer.Character.Reaper.Ability.PhaseEvent:FireServer("\237\153\149\236\157\184"); wait(t) end
+    end
+})
+local Tab1 = Window:MakeTab({
+    Name = "徽章获取",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+Tab1:AddButton({
+    Name = "一键得到剑手套所有徽章(装备剑手套)",
+    Callback = function() for _ = 1, 32 do    game:GetService("Players").LocalPlayer.Character.Sword.Ability.KillEvent:FireServer()
+end
+    end
+})
+Tab1:AddButton({
+    Name = "传送后室",
+    Callback = function() game:GetService("ReplicatedStorage"):WaitForChild("BackroomsRagdoll"):FireServer()
+    end
+})
+Tab1:AddButton({
+    Name = "得到火箭筒徽章(装备木桶)",
+    Callback = function() for _ = 1, 10 do   game:GetService("Players").LocalPlayer.Character.Barrel.Ability.Kill:FireServer()
+ end
+    end
+})
+Tab1:AddButton({
+    Name = "得到死亡笔记徽章(需要装备死神)",
+    Callback = function() for _ = 1, 10 do    game:GetService("Players").LocalPlayer.Character.GrimReaper.Ability.PhaseEvent:FireServer()
+end
+    end
+})
+OrionLib:Init()
