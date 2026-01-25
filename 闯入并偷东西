@@ -1,0 +1,53 @@
+---Ghost Gui UI Library
+loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/UI-Library/refs/heads/main/Ghost%20Gui'))()
+game.CoreGui.GhostGui.MainFrame.Title.Text = "用脚本的都是乐子"
+---
+
+local btn1 = AddContent("猎人M1", [[
+local args = {"m1"}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Trapper"):FireServer(unpack(args))
+]])
+btn1.BackgroundColor3 = Color3.fromRGB(255, 102, 102) 
+btn1.TextColor3 = Color3.fromRGB(255, 255, 255) 
+
+local btn2 = AddContent("猎人跳跃", [[
+local args = {"lunge"}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Trapper"):FireServer(unpack(args))
+]])
+btn2.BackgroundColor3 = Color3.fromRGB(102, 178, 255) 
+btn2.TextColor3 = Color3.fromRGB(255, 255, 255) 
+
+local btn3 = AddContent("猎人绊", [[
+local args = {"tripwire"}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Trapper"):FireServer(unpack(args))
+]])
+btn3.BackgroundColor3 = Color3.fromRGB(102, 255, 102) 
+btn3.TextColor3 = Color3.fromRGB(0, 0, 0) 
+
+local btn4 = AddContent("Ashle M1", [[
+local args = {"M1"}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ashle"):FireServer(unpack(args))
+]])
+btn4.BackgroundColor3 = Color3.fromRGB(255, 204, 102) 
+btn4.TextColor3 = Color3.fromRGB(0, 0, 0) 
+
+local btn5 = AddContent("Ashle用枪", [[
+local args = {"dartAim"}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ashle"):FireServer(unpack(args))
+]])
+btn5.BackgroundColor3 = Color3.fromRGB(204, 102, 255) 
+btn5.TextColor3 = Color3.fromRGB(255, 255, 255) 
+
+local btn6 = AddContent("爱吃菜特殊", [[
+local args = {"special"}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ashle"):FireServer(unpack(args))
+]])
+btn6.BackgroundColor3 = Color3.fromRGB(255, 255, 102) 
+btn6.TextColor3 = Color3.fromRGB(0, 0, 0) 
+
+local btn7 = AddContent("懒惰者", [[
+local args = {"walkspeedoverride",60.788827780634165}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Monster"):FireServer(unpack(args))
+]])
+btn7.BackgroundColor3 = Color3.fromRGB(178, 178, 178) 
+btn7.TextColor3 = Color3.fromRGB(255, 255, 255)
