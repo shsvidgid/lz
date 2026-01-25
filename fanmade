@@ -107,4 +107,21 @@ Tab1:AddButton({
 end
     end
 })
+local Tab2 = Window:MakeTab({
+    Name = "闯入并偷东西",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+local Section = Tab2:AddSection({
+    Name = "猎人无限技能"
+})
+Tab2:AddButton({
+    Name = "陷阱",
+    Callback = function() local args = {
+	"lunge"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Trapper"):FireServer(unpack(args))
+
+    end
+})
 OrionLib:Init()
