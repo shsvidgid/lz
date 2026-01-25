@@ -22,9 +22,13 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Trapp
 ]])
 
 -- Ashle M1
-AddContent("TextButton", "Ashle M1", [[
+AddContent("TextButton", "变成无敌爱吃菜", [[
 local args = {"M1"}
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ashle"):FireServer(unpack(args))
+local ashleRemote = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ashle")
+while true do
+    task.wait(0.05)
+    ashleRemote:FireServer(unpack(args))
+end
 ]])
 
 -- Ashle用枪
@@ -43,4 +47,12 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ashle
 AddContent("TextButton", "懒惰者", [[
 local args = {"walkspeedoverride",60.788827780634165}
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Monster"):FireServer(unpack(args))
+]])
+
+AddContent("TextButton", "飞行", [[
+loadstring(game:HttpGet('https://raw.githubusercontent.com/shsvidgid/lz/refs/heads/main/fly%20v3'))()
+]])
+
+AddContent("TextButton", "中文指令", [[
+loadstring(game:HttpGet('https://raw.githubusercontent.com/shsvidgid/lz/refs/heads/main/%5BCN%5DInfinite%20Yield6.1.lua'))()
 ]])
