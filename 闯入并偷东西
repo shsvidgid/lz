@@ -7,68 +7,40 @@ game.CoreGui.GhostGui.MainFrame.Title.Text = "用脚本的都是乐子"
 AddContent("TextButton", "猎人M1", [[
 local args = {"m1"}
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Trapper"):FireServer(unpack(args))
-]]).BackgroundColor3 = Color3.fromRGB(255,102,102)
-AddContent("TextButton", "猎人M1", [[
-local args = {"m1"}
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Trapper"):FireServer(unpack(args))
-]]).TextColor3 = Color3.fromRGB(255,255,255)
+]])
 
 -- 猎人跳跃
 AddContent("TextButton", "猎人跳跃", [[
 local args = {"lunge"}
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Trapper"):FireServer(unpack(args))
-]]).BackgroundColor3 = Color3.fromRGB(102,178,255)
-AddContent("TextButton", "猎人跳跃", [[
-local args = {"lunge"}
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Trapper"):FireServer(unpack(args))
-]]).TextColor3 = Color3.fromRGB(255,255,255)
+]])
 
 -- 猎人绊
 AddContent("TextButton", "猎人绊", [[
 local args = {"tripwire"}
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Trapper"):FireServer(unpack(args))
-]]).BackgroundColor3 = Color3.fromRGB(102,255,102)
-AddContent("TextButton", "猎人绊", [[
-local args = {"tripwire"}
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Trapper"):FireServer(unpack(args))
-]]).TextColor3 = Color3.fromRGB(0,0,0)
+]])
 
 -- Ashle M1
 AddContent("TextButton", "Ashle M1", [[
 local args = {"M1"}
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ashle"):FireServer(unpack(args))
-]]).BackgroundColor3 = Color3.fromRGB(255,204,102)
-AddContent("TextButton", "Ashle M1", [[
-local args = {"M1"}
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ashle"):FireServer(unpack(args))
-]]).TextColor3 = Color3.fromRGB(0,0,0)
+]])
 
 -- Ashle用枪
 AddContent("TextButton", "Ashle用枪", [[
 local args = {"dartAim"}
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ashle"):FireServer(unpack(args))
-]]).BackgroundColor3 = Color3.fromRGB(204,102,255)
-AddContent("TextButton", "Ashle用枪", [[
-local args = {"dartAim"}
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ashle"):FireServer(unpack(args))
-]]).TextColor3 = Color3.fromRGB(255,255,255)
+]])
 
 -- 爱吃菜特殊
 AddContent("TextButton", "爱吃菜特殊", [[
 local args = {"special"}
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ashle"):FireServer(unpack(args))
-]]).BackgroundColor3 = Color3.fromRGB(255,255,102)
-AddContent("TextButton", "爱吃菜特殊", [[
-local args = {"special"}
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ashle"):FireServer(unpack(args))
-]]).TextColor3 = Color3.fromRGB(0,0,0)
+]])
 
 -- 懒惰者
 AddContent("TextButton", "懒惰者", [[
 local args = {"walkspeedoverride",60.788827780634165}
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Monster"):FireServer(unpack(args))
-]]).BackgroundColor3 = Color3.fromRGB(178,178,178)
-AddContent("TextButton", "懒惰者", [[
-local args = {"walkspeedoverride",60.788827780634165}
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Monster"):FireServer(unpack(args))
-]]).TextColor3 = Color3.fromRGB(255,255,255)
+]])
