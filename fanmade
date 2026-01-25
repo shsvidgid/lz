@@ -124,4 +124,68 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Trapp
 
     end
 })
+Tab2:AddButton({
+    Name = "阿斯莱M1",
+    Callback = function() local args = {
+	"M1"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ashle"):FireServer(unpack(args))
+
+    end
+})
+Tab2:AddButton({
+    Name = "阿斯莱特殊",
+    Callback = function() local args = {
+	"special"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ashle"):FireServer(unpack(args))
+
+    end
+})
+Tab:AddButton({
+    Name = "阿斯莱用枪",
+    Callback = function() local args = {
+	"dartAim"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ashle"):FireServer(unpack(args))
+
+    end
+})
+Tab2:AddButton({
+    Name = "懒惰者直接扑向一个人",
+    Callback = function() local args = {
+	"walkspeedoverride",
+	60.788827780634165
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Monster"):FireServer(unpack(args))
+
+    end
+})
+Tab2:AddButton({
+    Name = "猎人M1",
+    Callback = function() local args = {
+	"m1"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Trapper"):FireServer(unpack(args))
+
+    end
+})
+Tab2:AddButton({
+    Name = "猎人线",
+    Callback = function() local args = {
+	"tripwire"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Trapper"):FireServer(unpack(args))
+
+    end
+})
+Tab2:AddButton({
+    Name = "猎人跳跃",
+    Callback = function() local args = {
+	"lunge"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Trapper"):FireServer(unpack(args))
+
+    end
+})
 OrionLib:Init()
