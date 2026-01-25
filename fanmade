@@ -142,7 +142,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ashle
 
     end
 })
-Tab:AddButton({
+Tab2:AddButton({
     Name = "阿斯莱用枪",
     Callback = function() local args = {
 	"dartAim"
