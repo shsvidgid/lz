@@ -56,3 +56,23 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/shsvidgid/lz/refs/hea
 AddContent("TextButton", "中文指令", [[
 loadstring(game:HttpGet('https://raw.githubusercontent.com/shsvidgid/lz/refs/heads/main/%5BCN%5DInfinite%20Yield6.1.lua'))()
 ]])
+
+AddContent("TextButton", "传送到大厅", [[
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=workspace.Lobby.Part.CFrame+Vector3.new(0,2,0)
+]])
+
+AddContent("TextButton", "传送到恐龙宝物", [[
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=workspace.Items.Drakkobloxxer.CFrame+Vector3.new(0,2,0)
+]])
+
+AddContent("TextButton", "传送到茶壶宝物", [[
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=workspace.Items.Teapot.CFrame+Vector3.new(0,2,0)
+]])
+
+AddContent("TextButton", "传送到卷轴宝物", [[
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=workspace.Items.ScrollOfSevenless.CFrame+Vector3.new(0,2,0)
+]])
+
+AddContent("TextButton", "传送到恢复区", [[
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=workspace.MapWorkspace.Spinglebob.Zone.CFrame+Vector3.new(0,2,0)
+]])
