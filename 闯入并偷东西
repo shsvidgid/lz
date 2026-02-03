@@ -49,6 +49,27 @@ local args = {"walkspeedoverride",60.788827780634165}
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Monster"):FireServer(unpack(args))
 ]])
 
+AddContent("TextButton", "观察者M1", [[
+local args = {
+	"M1"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Observer"):FireServer(unpack(args))
+]])
+
+AddContent("TextButton", "观察者之眼", [[
+local args = {
+	"observationEyes"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Observer"):FireServer(unpack(args))
+]])
+
+AddContent("TextButton", "观察者冲侧", [[
+local args = {
+	"RECALLTHEDEATH_rework"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Observer"):FireServer(unpack(args))
+]])
+
 AddContent("TextButton", "飞行", [[
 loadstring(game:HttpGet('https://raw.githubusercontent.com/shsvidgid/lz/refs/heads/main/fly%20v3'))()
 ]])
@@ -62,17 +83,17 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=workspace.Lobby.Part.
 ]])
 
 AddContent("TextButton", "传送到恐龙宝物", [[
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=workspace.Items.Drakkobloxxer.CFrame+Vector3.new(0,2,0)
+local t=workspace.Items.Drakkobloxxer;game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=(t:IsA("Model")and t.PrimaryPart or t).CFrame
 ]])
 
 AddContent("TextButton", "传送到茶壶宝物", [[
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=workspace.Items.Teapot.CFrame+Vector3.new(0,2,0)
+local t=workspace.Items.Teapot;game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=(t:IsA("Model")and t.PrimaryPart or t).CFrame
 ]])
 
 AddContent("TextButton", "传送到卷轴宝物", [[
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=workspace.Items.ScrollOfSevenless.CFrame+Vector3.new(0,2,0)
+local t=workspace.Items.ScrollOfSevenless;game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=(t:IsA("Model")and t.PrimaryPart or t).CFrame
 ]])
 
 AddContent("TextButton", "传送到恢复区", [[
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=workspace.MapWorkspace.Spinglebob.Zone.CFrame+Vector3.new(0,2,0)
+for _,v in pairs(game.Workspace.MapWorkspace:GetDescendants())do if v.Name=="Zone"then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=v.CFrame break end end
 ]])
